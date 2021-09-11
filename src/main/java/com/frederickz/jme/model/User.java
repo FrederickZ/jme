@@ -14,11 +14,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(callSuper=true)
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @ToString.Exclude
     private Set<Order> orders = new HashSet<>();
 
 }

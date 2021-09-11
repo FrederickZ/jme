@@ -1,11 +1,10 @@
 package com.frederickz.jme.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Setter
@@ -13,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(callSuper=true)
 @Entity
 @Table(name = "orders")
 public class Order extends BaseEntity {
@@ -22,11 +22,12 @@ public class Order extends BaseEntity {
     private Integer share;
     private Float price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-    private LocalDateTime created;
-    private Byte status;
+//    private LocalDateTime created;
+//    private Byte status;
 
 }
