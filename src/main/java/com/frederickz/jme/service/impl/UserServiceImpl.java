@@ -44,4 +44,8 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    @Override
+    public long count() {
+        return userRepository.count();
+    }
 }
