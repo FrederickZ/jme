@@ -16,23 +16,13 @@ import java.util.Optional;
 //@Validated
 public class OrderController {
 
-    private OrderService orderService;
-    private UserService userService;
+    private final OrderService orderService;
+    private final UserService userService;
 
     public OrderController(OrderService orderService, UserService userService) {
         this.orderService = orderService;
         this.userService = userService;
     }
-
-//    @InitBinder
-//    public void setAllowedFields(WebDataBinder dataBinder) {
-//        dataBinder.setDisallowedFields("id");
-//    }
-
-//    @ModelAttribute("user")
-//    public User findUser(@PathVariable("userId") Long userId) {
-//        return userService.findById(userId);
-//    }
 
     @GetMapping
     public String findAll() {

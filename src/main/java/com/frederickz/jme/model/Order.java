@@ -2,6 +2,7 @@ package com.frederickz.jme.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -27,7 +28,8 @@ public class Order extends BaseEntity {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-//    private LocalDateTime created;
-//    private Byte status;
+    @CreationTimestamp
+    private LocalDateTime created;
+    private Byte status = 0;
 
 }
