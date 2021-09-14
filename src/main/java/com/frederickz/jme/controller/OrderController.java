@@ -41,6 +41,7 @@ public class OrderController {
         order.setUser(user);
         try {
             Order savedOrder = orderService.save(order);
+            orderService.produceOrderMessage(savedOrder);
             return savedOrder.toString();
         } catch (Exception e) {
             return e.getMessage();

@@ -1,8 +1,10 @@
 package com.frederickz.jme.service.impl;
 
+import com.frederickz.jme.bootstrap.RabbitMQConfig;
 import com.frederickz.jme.model.Order;
 import com.frederickz.jme.repository.OrderRepository;
 import com.frederickz.jme.service.OrderService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -13,16 +15,16 @@ import java.util.UUID;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
+    private final RabbitTemplate rabbitTemplate;
 
-    public OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, RabbitTemplate rabbitTemplate) {
         this.orderRepository = orderRepository;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     @Override
     public Set<Order> findAll() {
-        Set<Order> orders = new HashSet<>();
-        orderRepository.findAll().forEach(orders::add);
-        return orders;
+        return new HashSet<>(orderRepository.findAll());
     }
 
     @Override
@@ -43,6 +45,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteById(UUID id) {
         orderRepository.deleteById(id);
+    }
+
+    @Override
+    public void produceOrderMessage(Order order) {
+        System.out.println("start produce message");
+        rabbitTemplate.convertAndSend(RabbitMQConfig.JME_ORDER_QUEUE, order.toString());
+        System.out.println("message produced");
     }
 
 }
