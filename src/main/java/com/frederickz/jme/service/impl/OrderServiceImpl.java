@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -25,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findById(Long id) {
+    public Order findById(UUID id) {
         return orderRepository.findById(id).orElse(null);
     }
 
@@ -40,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(UUID id) {
         orderRepository.deleteById(id);
     }
 
