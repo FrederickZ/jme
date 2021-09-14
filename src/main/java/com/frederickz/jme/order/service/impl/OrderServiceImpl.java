@@ -4,6 +4,8 @@ import com.frederickz.jme.infrastructure.RabbitMQConfig;
 import com.frederickz.jme.order.domain.Order;
 import com.frederickz.jme.order.repository.OrderRepository;
 import com.frederickz.jme.order.service.OrderService;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Service
+@RabbitListener(queues = "JME")
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
@@ -54,4 +57,9 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("message produced");
     }
 
+    @Override
+    @RabbitHandler
+    public void consumeOrderMessage(String message) {
+        System.out.println("Received: " + message);
+    }
 }
