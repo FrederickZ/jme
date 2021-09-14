@@ -1,9 +1,9 @@
-package com.frederickz.jme.service.impl;
+package com.frederickz.jme.order.service.impl;
 
-import com.frederickz.jme.bootstrap.RabbitMQConfig;
-import com.frederickz.jme.model.Order;
-import com.frederickz.jme.repository.OrderRepository;
-import com.frederickz.jme.service.OrderService;
+import com.frederickz.jme.infrastructure.RabbitMQConfig;
+import com.frederickz.jme.order.domain.Order;
+import com.frederickz.jme.order.repository.OrderRepository;
+import com.frederickz.jme.order.service.OrderService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 

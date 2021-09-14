@@ -1,7 +1,7 @@
-package com.frederickz.jme.bootstrap;
+package com.frederickz.jme.infrastructure;
 
-import com.frederickz.jme.model.User;
-import com.frederickz.jme.service.UserService;
+import com.frederickz.jme.user.domain.User;
+import com.frederickz.jme.user.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.frederickz.jme.bootstrap;
+package com.frederickz.jme.infrastructure;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;

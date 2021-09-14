@@ -1,4 +1,4 @@
-package com.frederickz.jme.service;
+package com.frederickz.jme.infrastructure;
 
 import java.util.Set;
 

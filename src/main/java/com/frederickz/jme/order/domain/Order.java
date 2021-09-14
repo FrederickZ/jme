@@ -1,6 +1,7 @@
-package com.frederickz.jme.model;
+package com.frederickz.jme.order.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.frederickz.jme.user.domain.User;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
