@@ -13,10 +13,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(callSuper=true)
+@ToString
 @Entity
 @Table(name = "orders")
-public class Order extends BaseEntity {
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Boolean buy;
 
