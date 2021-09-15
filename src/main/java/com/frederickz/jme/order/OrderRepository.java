@@ -1,6 +1,6 @@
-package com.frederickz.jme.order.repository;
+package com.frederickz.jme.order;
 
-import com.frederickz.jme.order.domain.Order;
+import com.frederickz.jme.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

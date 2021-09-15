@@ -1,7 +1,7 @@
-package com.frederickz.jme.user.service;
+package com.frederickz.jme.user;
 
 import com.frederickz.jme.infrastructure.CrudService;
-import com.frederickz.jme.user.domain.User;
+import com.frederickz.jme.user.User;
 
 public interface UserService extends CrudService<User, Long> {
 

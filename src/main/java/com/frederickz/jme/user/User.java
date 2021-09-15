@@ -1,6 +1,6 @@
-package com.frederickz.jme.user.domain;
+package com.frederickz.jme.user;
 
-import com.frederickz.jme.order.domain.Order;
+import com.frederickz.jme.order.Order;
 import lombok.*;
 
 import javax.persistence.*;

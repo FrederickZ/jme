@@ -1,8 +1,7 @@
-package com.frederickz.jme.order.service;
+package com.frederickz.jme.order;
 
 import com.frederickz.jme.infrastructure.CrudService;
-import com.frederickz.jme.order.domain.Order;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import com.frederickz.jme.order.Order;
 
 import java.util.UUID;
 

@@ -1,9 +1,7 @@
-package com.frederickz.jme.order.controller;
+package com.frederickz.jme.order;
 
-import com.frederickz.jme.order.domain.Order;
-import com.frederickz.jme.order.service.OrderService;
-import com.frederickz.jme.user.domain.User;
-import com.frederickz.jme.user.service.UserService;
+import com.frederickz.jme.user.User;
+import com.frederickz.jme.user.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
