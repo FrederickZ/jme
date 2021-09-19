@@ -1,18 +1,16 @@
-package com.frederickz.jme.user;
+package com.frederickz.jme.model;
 
-import com.frederickz.jme.order.Order;
+import com.frederickz.jme.model.Order;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 @Entity
 @Table(name = "users")
 public class User {

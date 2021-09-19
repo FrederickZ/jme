@@ -1,11 +1,8 @@
-package com.frederickz.jme.order.impl;
+package com.frederickz.jme.service.impl;
 
-import com.frederickz.jme.infrastructure.RabbitMQConfig;
-import com.frederickz.jme.order.Order;
-import com.frederickz.jme.order.OrderRepository;
-import com.frederickz.jme.order.OrderService;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import com.frederickz.jme.model.Order;
+import com.frederickz.jme.repository.OrderRepository;
+import com.frederickz.jme.service.OrderService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +11,6 @@ import java.util.Set;
 import java.util.UUID;
 
 @Service
-@RabbitListener(queues = "JME")
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
@@ -37,7 +33,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order save(Order order) {
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+        return savedOrder;
     }
 
     @Override
@@ -50,16 +47,4 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.deleteById(id);
     }
 
-    @Override
-    public void produceOrderMessage(Order order) {
-        System.out.println("start produce message");
-        rabbitTemplate.convertAndSend(RabbitMQConfig.JME_ORDER_QUEUE, order.toString());
-        System.out.println("message produced");
-    }
-
-    @Override
-    @RabbitHandler
-    public void consumeOrderMessage(String message) {
-        System.out.println("Received: " + message);
-    }
 }

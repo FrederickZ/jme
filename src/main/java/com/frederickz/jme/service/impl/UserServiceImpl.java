@@ -1,8 +1,8 @@
-package com.frederickz.jme.user.impl;
+package com.frederickz.jme.service.impl;
 
-import com.frederickz.jme.user.UserRepository;
-import com.frederickz.jme.user.User;
-import com.frederickz.jme.user.UserService;
+import com.frederickz.jme.repository.UserRepository;
+import com.frederickz.jme.model.User;
+import com.frederickz.jme.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

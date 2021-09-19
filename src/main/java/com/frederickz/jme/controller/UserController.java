@@ -1,5 +1,7 @@
-package com.frederickz.jme.user;
+package com.frederickz.jme.controller;
 
+import com.frederickz.jme.model.User;
+import com.frederickz.jme.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,7 +1,9 @@
-package com.frederickz.jme.order;
+package com.frederickz.jme.controller;
 
-import com.frederickz.jme.user.User;
-import com.frederickz.jme.user.UserService;
+import com.frederickz.jme.model.Order;
+import com.frederickz.jme.model.User;
+import com.frederickz.jme.service.OrderService;
+import com.frederickz.jme.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -39,7 +41,7 @@ public class OrderController {
         order.setUser(user);
         try {
             Order savedOrder = orderService.save(order);
-            orderService.produceOrderMessage(savedOrder);
+            System.out.println(savedOrder);
             return savedOrder.toString();
         } catch (Exception e) {
             return e.getMessage();

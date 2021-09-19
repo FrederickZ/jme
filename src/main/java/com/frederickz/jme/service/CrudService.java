@@ -1,4 +1,6 @@
-package com.frederickz.jme.infrastructure;
+package com.frederickz.jme.service;
+
+import org.springframework.dao.DataAccessException;
 
 import java.util.Set;
 
@@ -6,7 +8,7 @@ public interface CrudService<T, ID> {
 
     Set<T> findAll();
     T findById(ID id);
-    T save(T object);
+    T save(T object) throws DataAccessException;
     void delete(T object);
     void deleteById(ID id);
 
