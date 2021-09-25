@@ -31,13 +31,26 @@ public class Order implements Serializable {
     private Integer share;
     private Float price;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @CreationTimestamp
     private LocalDateTime created;
     private Byte status = 0;
+
+    public boolean isBuyOder() {
+        return buy;
+    }
+
+    public String toMessage() {
+        return id + "|" +
+                buy + "|" +
+                share + "|" +
+                price + "|" +
+                user.getId() + "|" +
+                created + "|" +
+                status;
+    }
 
 }

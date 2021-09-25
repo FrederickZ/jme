@@ -19,8 +19,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(mappedBy = "user")
+    @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Set<Order> orders = new HashSet<>();
+    private Set<Order> orders;
 
 }

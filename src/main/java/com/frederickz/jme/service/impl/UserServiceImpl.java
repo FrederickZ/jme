@@ -19,9 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Set<User> findAll() {
-        Set<User> users = new HashSet<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
+        return new HashSet<>(userRepository.findAll());
     }
 
     @Override
